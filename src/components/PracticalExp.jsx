@@ -29,7 +29,7 @@ export default function PracticalExp({ title, company, responsibilities, start, 
             />
             <InputGroup
                 type="text"
-                id="startDate"
+                id="jobStartDate"
                 label="Start Date"
                 placeholder="Date"
                 value={start}
@@ -37,7 +37,7 @@ export default function PracticalExp({ title, company, responsibilities, start, 
             />
             <InputGroup
                 type="text"
-                id="endDate"
+                id="jobEndDate"
                 label="End Date"
                 placeholder="Date"
                 value={end}

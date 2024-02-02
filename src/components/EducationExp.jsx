@@ -21,7 +21,7 @@ export default function EducationExp({ school, degree, start, end, onChange }) {
             />
             <InputGroup
                 type="text"
-                id="startDate"
+                id="eduStartDate"
                 label="Start Date"
                 placeholder="Date"
                 value={start}
@@ -29,7 +29,7 @@ export default function EducationExp({ school, degree, start, end, onChange }) {
             />
             <InputGroup
                 type="text"
-                id="endDate"
+                id="eduEndDate"
                 label="End Date"
                 placeholder="Date"
                 value={end}

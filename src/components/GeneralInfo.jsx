@@ -5,7 +5,7 @@ export default function GeneralInfo({ firstName, lastName, email, phone, onChang
             <legend>General Information</legend>
             <InputGroup
                 type="text"
-                id="first-name"
+                id="firstName"
                 label="First Name"
                 placeholder="First Name"
                 value={firstName}
@@ -13,7 +13,7 @@ export default function GeneralInfo({ firstName, lastName, email, phone, onChang
             />
             <InputGroup
                 type="text"
-                id="last-name"
+                id="lastName"
                 label="Last Name"
                 placeholder="Last Name"
                 value={lastName}
