@@ -1,8 +1,8 @@
 import InputGroup from "./InputGroup";
-export default function PracticalExp({ title, company, responsibilities, start, end, onChange }) {
+export default function ExperienceInfo({ title, company, responsibilities, start, end, onChange }) {
     return (
-        <fieldset>
-            <legend>Practical Experience</legend>
+        <fieldset className="expInfo">
+            <legend>Experience</legend>
             <InputGroup
                 type="text"
                 id="title"
@@ -29,7 +29,7 @@ export default function PracticalExp({ title, company, responsibilities, start, 
             />
             <InputGroup
                 type="text"
-                id="jobStartDate"
+                id="expStartDate"
                 label="Start Date"
                 placeholder="Date"
                 value={start}
@@ -37,7 +37,7 @@ export default function PracticalExp({ title, company, responsibilities, start, 
             />
             <InputGroup
                 type="text"
-                id="jobEndDate"
+                id="expEndDate"
                 label="End Date"
                 placeholder="Date"
                 value={end}

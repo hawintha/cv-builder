@@ -1,22 +1,24 @@
 const exampleData = {
-    generalDetails: {
+    genDetails: {
         firstName: "Mickey",
         lastName: "Mouse",
         email: "mickeymouse@waltdisney.com",
-        phone: "877-764-2539"
+        phone: "(877) 764-2539",
+        location: "Burbank, CA"
     },
     eduDetails: {
-        school: "University of Disney",
+        school: "University of Disneyland",
         degree: "Bachelor of Arts in Theater",
+        eduLocation: "Anaheim, CA",
         eduStartDate: "1928",
         eduEndDate: "1932",
     },
-    practicalDetails: {
+    expDetails: {
         title: "Actor",
         company: "The Walt Disney Company",
         responsibilities: "Played the role of a an easygoing leader of The Sensational Six in the animated TV series, \"Mickey Mouse Clubhouse.\" Demonstrated versatility as an actor by portraying a complex character and delivering many compelling performances for 125 episodes.",
-        jobStartDate: "2005",
-        jobEndDate: "2016",
+        expStartDate: "2005",
+        expEndDate: "2016",
     }
 }
 

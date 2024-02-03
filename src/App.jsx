@@ -1,54 +1,56 @@
 import { useState } from 'react'
 import './App.css'
 import GeneralInfo from './components/GeneralInfo';
-import EducationExp from './components/EducationExp';
-import PracticalExp from './components/PracticalExp';
+import EducationInfo from './components/EducationInfo';
+import ExperienceInfo from './components/ExperienceInfo';
 import Preview from './components/Preview';
 import exampleData from './example-data';
 
 export default function App() {
-  const [generalDetails, setGeneralDetails] = useState(exampleData.generalDetails);
+  const [genDetails, setGenDetails] = useState(exampleData.genDetails);
   const [eduDetails, setEduDetails] = useState(exampleData.eduDetails);
-  const [practicalDetails, setPracticalDetails] = useState(exampleData.practicalDetails);
-  function handleGeneralDetailsChange(e) {
-    setGeneralDetails({ ...generalDetails, [e.target.id]: e.target.value });
+  const [expDetails, setExperienceDetails] = useState(exampleData.expDetails);
+  function handleGenDetailsChange(e) {
+    setGenDetails({ ...genDetails, [e.target.id]: e.target.value });
   }
   function handleEduDetailsChange(e) {
     setEduDetails({ ...eduDetails, [e.target.id]: e.target.value });
   }
-  function handlePracticalDetailsChange(e) {
-    setPracticalDetails({ ...practicalDetails, [e.target.id]: e.target.value });
+  function handleExperienceDetailsChange(e) {
+    setExperienceDetails({ ...expDetails, [e.target.id]: e.target.value });
   }
   return (
     <>
       <form action="">
         <GeneralInfo
-          firstName={generalDetails.firstName}
-          lastName={generalDetails.lastName}
-          email={generalDetails.email}
-          phone={generalDetails.phone}
-          onChange={handleGeneralDetailsChange}
+          firstName={genDetails.firstName}
+          lastName={genDetails.lastName}
+          email={genDetails.email}
+          phone={genDetails.phone}
+          location={genDetails.location}
+          onChange={handleGenDetailsChange}
         />
-        <EducationExp
+        <EducationInfo
           school={eduDetails.school}
           degree={eduDetails.degree}
+          location={eduDetails.eduLocation}
           start={eduDetails.eduStartDate}
           end={eduDetails.eduEndDate}
           onChange={handleEduDetailsChange}
         />
-        <PracticalExp
-          title={practicalDetails.title}
-          company={practicalDetails.company}
-          responsibilities={practicalDetails.responsibilities}
-          start={practicalDetails.jobStartDate}
-          end={practicalDetails.jobEndDate}
-          onChange={handlePracticalDetailsChange}
+        <ExperienceInfo
+          title={expDetails.title}
+          company={expDetails.company}
+          responsibilities={expDetails.responsibilities}
+          start={expDetails.expStartDate}
+          end={expDetails.expEndDate}
+          onChange={handleExperienceDetailsChange}
         />
       </form>
       <Preview
-        generalDetails={generalDetails}
+        genDetails={genDetails}
         eduDetails={eduDetails}
-        practicalDetails={practicalDetails}
+        expDetails={expDetails}
       />
     </>
   )

@@ -1,11 +1,33 @@
-export default function Preview({ generalDetails, eduDetails, practicalDetails }) {
+export default function Preview({ genDetails, eduDetails, expDetails }) {
     return (
         <div className="previewContainer">
-            <h1>{generalDetails.firstName} {generalDetails.lastName}</h1>
-            <h2>Education</h2>
-            <span>{eduDetails.school}</span>
-            <h2>Practical Experience</h2>
-            <span>{practicalDetails.company}</span>
+            <h1>{genDetails.firstName} {genDetails.lastName}</h1>
+            <div className="contact">
+                <span>{genDetails.email}</span>
+                <span>{genDetails.phone}</span>
+                <span>{genDetails.location}</span>
+            </div>
+            <section>
+                <h2>EDUCATION</h2>
+                <div className="entry">
+                    <div className="entry-heading">
+                        <span className="degree">{eduDetails.degree}</span>
+                        <span>{eduDetails.eduStartDate} - {eduDetails.eduEndDate}</span>
+                    </div>
+                    <span>{eduDetails.school}, {eduDetails.eduLocation} </span>
+                </div>
+            </section>
+            <section>
+                <h2>EXPERIENCE</h2>
+                <div className="entry exp">
+                    <div className="entry-heading">
+                        <span className="company-title">{expDetails.title}, {expDetails.company}</span>
+                        <span>{expDetails.expStartDate} - {expDetails.expEndDate}</span>
+                    </div>
+                    <p>{expDetails.responsibilities}</p>
+                </div>
+            </section>
+
         </div>
     )
 }

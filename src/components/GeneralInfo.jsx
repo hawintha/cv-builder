@@ -1,7 +1,7 @@
 import InputGroup from "./InputGroup";
-export default function GeneralInfo({ firstName, lastName, email, phone, onChange }) {
+export default function GeneralInfo({ firstName, lastName, email, phone, location, onChange }) {
     return (
-        <fieldset className="generalInfo">
+        <fieldset className="genInfo">
             <legend>General Information</legend>
             <InputGroup
                 type="text"
@@ -33,6 +33,14 @@ export default function GeneralInfo({ firstName, lastName, email, phone, onChang
                 label="Phone"
                 placeholder="(000) 000 - 0000"
                 value={phone}
+                onChange={onChange}
+            />
+            <InputGroup
+                type="text"
+                id="location"
+                label="Location"
+                placeholder="City, State"
+                value={location}
                 onChange={onChange}
             />
         </fieldset>

@@ -1,8 +1,16 @@
 import InputGroup from "./InputGroup";
-export default function EducationExp({ school, degree, start, end, onChange }) {
+export default function EducationInfo({ school, degree, start, end, location, onChange }) {
     return (
         <fieldset className="eduInfo">
-            <legend>Education Experience</legend>
+            <legend>Education</legend>
+            <InputGroup
+                type="text"
+                id="degree"
+                label="Degree"
+                placeholder="Degree"
+                value={degree}
+                onChange={onChange}
+            />
             <InputGroup
                 type="text"
                 id="school"
@@ -13,10 +21,10 @@ export default function EducationExp({ school, degree, start, end, onChange }) {
             />
             <InputGroup
                 type="text"
-                id="degree"
-                label="Degree"
-                placeholder="Degree"
-                value={degree}
+                id="eduLocation"
+                label="Location"
+                placeholder="City, State"
+                value={location}
                 onChange={onChange}
             />
             <InputGroup
