@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { v4 as uuidv4 } from 'uuid';
 import './App.css'
 import GeneralInfo from './components/GeneralInfo';
 import EducationInfo from './components/EducationInfo';
@@ -9,16 +10,60 @@ import exampleData from './example-data';
 export default function App() {
   const [genDetails, setGenDetails] = useState(exampleData.genDetails);
   const [eduDetails, setEduDetails] = useState(exampleData.eduDetails);
-  const [expDetails, setExperienceDetails] = useState(exampleData.expDetails);
+  const [expDetails, setExpDetails] = useState(exampleData.expDetails);
+
   function handleGenDetailsChange(e) {
     setGenDetails({ ...genDetails, [e.target.id]: e.target.value });
   }
+
   function handleEduDetailsChange(e) {
-    setEduDetails({ ...eduDetails, [e.target.id]: e.target.value });
+    let targetUUID = e.target.parentElement.parentElement.id;
+    setEduDetails(eduDetails.map((entry) => { //Update the entry array in details
+      if (entry.id === targetUUID) {
+        entry[e.target.id] = e.target.value; //Update matching entry using input value
+      }
+      return entry
+    }));
   }
-  function handleExperienceDetailsChange(e) {
-    setExperienceDetails({ ...expDetails, [e.target.id]: e.target.value });
+
+  function handleExpDetailsChange(e) {
+    let targetUUID = e.target.parentElement.parentElement.id;
+    setExpDetails(expDetails.map((entry) => { //Update the entry array in details
+      if (entry.id === targetUUID) {
+        entry[e.target.id] = e.target.value; //Update matching entry using input value
+      }
+      return entry
+    }));
   }
+
+  function createForm(array, setState, obj) {
+    const clone = structuredClone(array); //Copy array
+    clone.push(obj);
+    setState(clone); //Update array with the newly added object
+  }
+  const createEduForm = () => {
+    createForm(eduDetails, setEduDetails, {
+      school: "Unspecified",
+      degree: "",
+      eduLocation: "",
+      eduStartDate: "",
+      eduEndDate: "",
+      id: uuidv4(),
+      isCollapsed: true
+    })
+  }
+  const extraExpForm = () => {
+    createForm(expDetails, setExpDetails, {
+      title: "Unspecified",
+      company: "",
+      responsibilities: "",
+      expStartDate: "",
+      expEndDate: "",
+      id: uuidv4(),
+      isCollapsed: true
+    })
+  }
+
   return (
     <>
       <form action="">
@@ -31,20 +76,14 @@ export default function App() {
           onChange={handleGenDetailsChange}
         />
         <EducationInfo
-          school={eduDetails.school}
-          degree={eduDetails.degree}
-          location={eduDetails.eduLocation}
-          start={eduDetails.eduStartDate}
-          end={eduDetails.eduEndDate}
+          details={eduDetails}
           onChange={handleEduDetailsChange}
+          createForm={createEduForm}
         />
         <ExperienceInfo
-          title={expDetails.title}
-          company={expDetails.company}
-          responsibilities={expDetails.responsibilities}
-          start={expDetails.expStartDate}
-          end={expDetails.expEndDate}
-          onChange={handleExperienceDetailsChange}
+          details={expDetails}
+          onChange={handleExpDetailsChange}
+          extraForm={extraExpForm}
         />
       </form>
       <Preview

@@ -9,25 +9,36 @@ export default function Preview({ genDetails, eduDetails, expDetails }) {
             </div>
             <section>
                 <h2>EDUCATION</h2>
-                <div className="entry">
-                    <div className="entry-heading">
-                        <span className="degree">{eduDetails.degree}</span>
-                        <span>{eduDetails.eduStartDate} - {eduDetails.eduEndDate}</span>
-                    </div>
-                    <span>{eduDetails.school}, {eduDetails.eduLocation} </span>
-                </div>
+                {
+                    eduDetails.map((entry) => {
+                        return (
+                            <div className="entry" key={entry.id}>
+                                <div className="entry-heading">
+                                    <span className="degree">{entry.degree}</span>
+                                    <span>{entry.eduStartDate} - {entry.eduEndDate}</span>
+                                </div>
+                                <span>{entry.school}, {entry.eduLocation} </span>
+                            </div>
+                        )
+                    })
+                }
             </section>
             <section>
                 <h2>EXPERIENCE</h2>
-                <div className="entry exp">
-                    <div className="entry-heading">
-                        <span className="company-title">{expDetails.title}, {expDetails.company}</span>
-                        <span>{expDetails.expStartDate} - {expDetails.expEndDate}</span>
-                    </div>
-                    <p>{expDetails.responsibilities}</p>
-                </div>
+                {
+                    expDetails.map((entry) => {
+                        return (
+                            <div className="entry exp" key={entry.id}>
+                                <div className="entry-heading">
+                                    <span className="company-title">{entry.title}, {entry.company}</span>
+                                    <span>{entry.expStartDate} - {entry.expEndDate}</span>
+                                </div>
+                                <p>{entry.responsibilities}</p>
+                            </div>
+                        )
+                    })
+                }
             </section>
-
         </div>
     )
 }

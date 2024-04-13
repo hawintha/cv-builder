@@ -1,48 +1,17 @@
-import InputGroup from "./InputGroup";
-export default function EducationInfo({ school, degree, start, end, location, onChange }) {
-    return (
-        <fieldset className="eduInfo">
+import EducationItem from "./EducationItem";
+export default function EducationInfo({ details, onChange, createForm }) {
+    return (<>
+        <fieldset className="eduInfo" >
             <legend>Education</legend>
-            <InputGroup
-                type="text"
-                id="degree"
-                label="Degree"
-                placeholder="Degree"
-                value={degree}
-                onChange={onChange}
-            />
-            <InputGroup
-                type="text"
-                id="school"
-                label="School"
-                placeholder="School"
-                value={school}
-                onChange={onChange}
-            />
-            <InputGroup
-                type="text"
-                id="eduLocation"
-                label="Location"
-                placeholder="City, State"
-                value={location}
-                onChange={onChange}
-            />
-            <InputGroup
-                type="text"
-                id="eduStartDate"
-                label="Start Date"
-                placeholder="Date"
-                value={start}
-                onChange={onChange}
-            />
-            <InputGroup
-                type="text"
-                id="eduEndDate"
-                label="End Date"
-                placeholder="Date"
-                value={end}
-                onChange={onChange}
-            />
+            {details.map((entry) => //Make button & fields for each education entry
+                <EducationItem
+                    item={entry}
+                    onChange={onChange}
+                    key={entry.id}
+                    uuid={entry.id}
+                />
+            )}
+            <button type="button" onClick={createForm}>+ Additional Education</button>
         </fieldset >
-    )
+    </>)
 }

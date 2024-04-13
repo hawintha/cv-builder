@@ -1,4 +1,4 @@
-export default function InputGroup({ type, id, label, placeholder, value, onChange }) {
+export default function InputGroup({ type, id, label, placeholder, value, onChange, "data-key": dataKey }) {
     return (
         <div className="input-group">
             <label htmlFor={id}>{label} </label>
@@ -8,6 +8,7 @@ export default function InputGroup({ type, id, label, placeholder, value, onChan
                 placeholder={placeholder}
                 value={value}
                 onChange={onChange}
+                data-key={dataKey}
             />
         </div>
     )
