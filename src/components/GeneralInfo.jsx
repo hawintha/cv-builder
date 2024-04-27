@@ -2,7 +2,7 @@ import InputGroup from "./InputGroup";
 export default function GeneralInfo({ firstName, lastName, email, phone, location, onChange }) {
     return (
         <fieldset className="genInfo">
-            <legend>General Information</legend>
+            <h2>General Information</h2>
             <InputGroup
                 type="text"
                 id="firstName"

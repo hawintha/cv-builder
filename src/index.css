@@ -1,18 +1,32 @@
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-height: 100vh;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  align-self: center;
+  padding: 50px;
+}
+
+fieldset {
+  border: none;
+  padding: 2rem;
+  margin-bottom: 1rem;
+}
+
+form h2 {
+  font-size: 30px;
+  font-weight: 600;
+  padding-bottom: 6px;
 }
 
 h1 {
   text-align: center;
   margin: 10px;
-}
-
-h2 {
-  font-size: 18px;
-  margin: 20px 0 0 0;
 }
 
 span,

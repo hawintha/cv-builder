@@ -65,7 +65,7 @@ export default function App() {
   }
 
   return (
-    <>
+    <main>
       <form action="">
         <GeneralInfo
           firstName={genDetails.firstName}
@@ -91,6 +91,6 @@ export default function App() {
         eduDetails={eduDetails}
         expDetails={expDetails}
       />
-    </>
+    </main>
   )
 }

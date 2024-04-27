@@ -2,7 +2,7 @@ import ExperienceItem from "./ExperienceItem";
 export default function ExperienceInfo({ details, onChange, extraForm }) {
     return (<>
         <fieldset className="expInfo" >
-            <legend>Experience</legend>
+            <h2>Experience</h2>
             {details.map((entry) => //Make button & fields for each experience entry
                 <ExperienceItem
                     item={entry}
