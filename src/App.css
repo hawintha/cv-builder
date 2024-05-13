@@ -12,15 +12,17 @@ fieldset,
 }
 
 form input,
-form button {
+form button,
+textarea {
   padding: 10px;
   outline: none;
   width: 100%;
   border-radius: 4px;
 }
 
-form input {
-  border: 1px solid #E5E5E5;
+form input,
+textarea {
+  border: 1px solid #AAAAAA;
   margin: 4px 0;
 }
 
@@ -49,6 +51,7 @@ form button {
 .previewContainer h2 {
   font-size: 18px;
   margin: 20px 0 0 0;
+  background-color: #F3F4F6;
 }
 
 .contact {

@@ -1,15 +1,18 @@
-export default function InputGroup({ type, id, label, placeholder, value, onChange, "data-key": dataKey }) {
+export default function InputGroup({ type, id, label, placeholder, value, onChange }) {
     return (
         <div className="input-group">
             <label htmlFor={id}>{label} </label>
-            <input
-                type={type}
-                id={id}
-                placeholder={placeholder}
-                value={value}
-                onChange={onChange}
-                data-key={dataKey}
-            />
+            {type === "text" ? (
+                <input
+                    type={type}
+                    id={id}
+                    placeholder={placeholder}
+                    value={value}
+                    onChange={onChange}
+                />
+            ) : (
+                <textarea name={id} id={id} rows="5" placeholder={placeholder}></textarea>
+            )}
         </div>
     )
 }

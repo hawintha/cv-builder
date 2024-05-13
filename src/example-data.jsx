@@ -5,7 +5,8 @@ const exampleData = {
         lastName: "Mouse",
         email: "mickeymouse@waltdisney.com",
         phone: "(877) 764-2539",
-        location: "Burbank, CA"
+        location: "Burbank, CA",
+        summary: "Passionate performer with a strong acting background and decades of experience in the entertainment industry. Known for meticulous attention to detail, mastery of dramatic techniques, and proven ability to collaborate effectively within a team."
     },
     eduDetails: [
         {
@@ -43,6 +44,48 @@ const exampleData = {
             expStartDate: "1937",
             expEndDate: "1937",
             id: uuidv4()
+        }
+    ],
+    skillDetails: [
+        {
+            skillName: "Communication",
+            id: uuidv4(),
+            isCollapsed: true
+        },
+        {
+            skillName: "Leadership",
+            id: uuidv4(),
+            isCollapsed: true
+        },
+        {
+            skillName: "Creativity",
+            id: uuidv4(),
+            isCollapsed: true
+        },
+        {
+            skillName: "Dance",
+            id: uuidv4(),
+            isCollapsed: true
+        },
+        {
+            skillName: "Problem Solving",
+            id: uuidv4(),
+            isCollapsed: true
+        },
+        {
+            skillName: "Flexibility",
+            id: uuidv4(),
+            isCollapsed: true
+        },
+        {
+            skillName: "Piano",
+            id: uuidv4(),
+            isCollapsed: true
+        },
+        {
+            skillName: "Magic",
+            id: uuidv4(),
+            isCollapsed: true
         }
     ]
 }

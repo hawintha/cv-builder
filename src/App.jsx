@@ -4,6 +4,7 @@ import './App.css'
 import GeneralInfo from './components/GeneralInfo';
 import EducationInfo from './components/EducationInfo';
 import ExperienceInfo from './components/ExperienceInfo';
+import SkillsInfo from './components/SkillsInfo';
 import Preview from './components/Preview';
 import exampleData from './example-data';
 
@@ -11,6 +12,7 @@ export default function App() {
   const [genDetails, setGenDetails] = useState(exampleData.genDetails);
   const [eduDetails, setEduDetails] = useState(exampleData.eduDetails);
   const [expDetails, setExpDetails] = useState(exampleData.expDetails);
+  const [skillDetails, setSkillDetails] = useState(exampleData.skillDetails);
 
   function handleGenDetailsChange(e) {
     setGenDetails({ ...genDetails, [e.target.id]: e.target.value });
@@ -63,16 +65,29 @@ export default function App() {
       isCollapsed: true
     })
   }
+  const createSkillForm = () => {
+    createForm(skillDetails, setSkillDetails, {
+      name: "Unspecified",
+      id: uuidv4(),
+      isCollapsed: true
+    })
+  }
+
+  const handleSkillsChange = (e) => {
+    let targetUUID = e.target.parentElement.parentElement.id;
+    setSkillDetails(skillDetails.map((entry) => { //Update the entry array in details
+      if (entry.id === targetUUID) {
+        entry[e.target.id] = e.target.value; //Update matching entry using input value
+      }
+      return entry
+    }));
+  }
 
   return (
     <main>
       <form action="">
         <GeneralInfo
-          firstName={genDetails.firstName}
-          lastName={genDetails.lastName}
-          email={genDetails.email}
-          phone={genDetails.phone}
-          location={genDetails.location}
+          details={genDetails}
           onChange={handleGenDetailsChange}
         />
         <EducationInfo
@@ -85,11 +100,17 @@ export default function App() {
           onChange={handleExpDetailsChange}
           extraForm={extraExpForm}
         />
+        <SkillsInfo
+          details={skillDetails}
+          onChange={handleSkillsChange}
+          createForm={createSkillForm}
+        />
       </form>
       <Preview
         genDetails={genDetails}
         eduDetails={eduDetails}
         expDetails={expDetails}
+        skillDetails={skillDetails}
       />
     </main>
   )
