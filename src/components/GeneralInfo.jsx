@@ -5,7 +5,7 @@ export default function GeneralInfo({ details, onChange }) {
             <h2>General Information</h2>
             <InputGroup
                 type="text"
-                id="firstName"
+                className="firstName"
                 label="First Name"
                 placeholder="First Name"
                 value={details.firstName}
@@ -13,7 +13,7 @@ export default function GeneralInfo({ details, onChange }) {
             />
             <InputGroup
                 type="text"
-                id="lastName"
+                className="lastName"
                 label="Last Name"
                 placeholder="Last Name"
                 value={details.lastName}
@@ -21,7 +21,7 @@ export default function GeneralInfo({ details, onChange }) {
             />
             <InputGroup
                 type="text"
-                id="email"
+                className="email"
                 label="Email"
                 placeholder="example@company.com"
                 value={details.email}
@@ -29,7 +29,7 @@ export default function GeneralInfo({ details, onChange }) {
             />
             <InputGroup
                 type="text"
-                id="phone"
+                className="phone"
                 label="Phone"
                 placeholder="(000) 000 - 0000"
                 value={details.phone}
@@ -37,7 +37,7 @@ export default function GeneralInfo({ details, onChange }) {
             />
             <InputGroup
                 type="text"
-                id="location"
+                className="location"
                 label="Location"
                 placeholder="City, State"
                 value={details.location}
@@ -45,7 +45,7 @@ export default function GeneralInfo({ details, onChange }) {
             />
             <InputGroup
                 type="textarea"
-                id="summary"
+                className="summary"
                 label="Summary"
                 placeholder="About Yourself"
                 value={details.summary}

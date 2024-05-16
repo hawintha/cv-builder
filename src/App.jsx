@@ -15,14 +15,14 @@ export default function App() {
   const [skillDetails, setSkillDetails] = useState(exampleData.skillDetails);
 
   function handleGenDetailsChange(e) {
-    setGenDetails({ ...genDetails, [e.target.id]: e.target.value });
+    setGenDetails({ ...genDetails, [e.target.className]: e.target.value });
   }
 
   function handleEduDetailsChange(e) {
     let targetUUID = e.target.parentElement.parentElement.id;
     setEduDetails(eduDetails.map((entry) => { //Update the entry array in details
       if (entry.id === targetUUID) {
-        entry[e.target.id] = e.target.value; //Update matching entry using input value
+        entry[e.target.className] = e.target.value; //Update matching entry using input value
       }
       return entry
     }));
@@ -32,7 +32,17 @@ export default function App() {
     let targetUUID = e.target.parentElement.parentElement.id;
     setExpDetails(expDetails.map((entry) => { //Update the entry array in details
       if (entry.id === targetUUID) {
-        entry[e.target.id] = e.target.value; //Update matching entry using input value
+        entry[e.target.className] = e.target.value; //Update matching entry using input value
+      }
+      return entry
+    }));
+  }
+
+  const handleSkillsChange = (e) => {
+    let targetUUID = e.target.parentElement.parentElement.id;
+    setSkillDetails(skillDetails.map((entry) => { //Update the entry array in details
+      if (entry.id === targetUUID) {
+        entry[e.target.className] = e.target.value; //Update matching entry using input value
       }
       return entry
     }));
@@ -67,20 +77,10 @@ export default function App() {
   }
   const createSkillForm = () => {
     createForm(skillDetails, setSkillDetails, {
-      name: "Unspecified",
+      skillName: "Unspecified",
       id: uuidv4(),
       isCollapsed: true
     })
-  }
-
-  const handleSkillsChange = (e) => {
-    let targetUUID = e.target.parentElement.parentElement.id;
-    setSkillDetails(skillDetails.map((entry) => { //Update the entry array in details
-      if (entry.id === targetUUID) {
-        entry[e.target.id] = e.target.value; //Update matching entry using input value
-      }
-      return entry
-    }));
   }
 
   return (

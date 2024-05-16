@@ -46,6 +46,10 @@ form button {
   height: 11in;
   width: 8.5in;
   padding: 30px 30px 40px;
+  position: sticky;
+  align-self: start;
+  top: 0;
+  left: 0;
 }
 
 .previewContainer h2 {

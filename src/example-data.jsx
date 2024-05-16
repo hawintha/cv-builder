@@ -30,16 +30,17 @@ const exampleData = {
     ],
     expDetails: [
         {
-            title: "Sensational Six Leader",
             company: "The Walt Disney Company",
+            title: "Sensational Six Leader",
             responsibilities: "Played the role of a an easygoing leader of The Sensational Six in the animated TV series, \"Mickey Mouse Clubhouse.\" Demonstrated versatility as an actor by portraying a complex character and delivering many compelling performances for 125 episodes.",
             expStartDate: "2005",
             expEndDate: "2016",
             id: uuidv4()
         },
         {
-            title: "Ghost Exterminator",
+
             company: "Ajax Corporation",
+            title: "Ghost Exterminator",
             responsibilities: "Played the role of a ghost exterminator in the animated cartoon, \"Lonesome Ghosts.\" Worked alongside Donald Duck and Goofy as a member of the Ajax Ghost Exterminators.",
             expStartDate: "1937",
             expEndDate: "1937",
