@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import InputGroup from "./InputGroup";
-export default function SkillsItem({ entry, onChange }) {
+export default function SkillsItem({ entry, onChange, onDelete  }) {
     const [isEditing, setEdit] = useState(false);
     return (<>
         <div className="detail-item" key={entry.id}>
@@ -15,6 +15,10 @@ export default function SkillsItem({ entry, onChange }) {
                         value={entry.skillName}
                         onChange={onChange}
                     />
+                    <div className='formBtns'>
+                        <button type="button" className='deleteBtn' onClick={(e) => onDelete(e)}>Delete</button>
+                        <button type="button" className='closeBtn' onClick={() => setEdit(!isEditing)}>Close</button>
+                    </div>
                 </section>
             )}
         </div>

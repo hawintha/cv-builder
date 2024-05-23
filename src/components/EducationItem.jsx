@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import InputGroup from "./InputGroup";
-export default function EducationItem({ entry, onChange }) {
-    const [editItem, setEdit] = useState(false);
+export default function EducationItem({ entry, onChange, onDelete }) {
+    const [isEditing, setEdit] = useState(true);
     return (<>
         <div className="detail-item">
-            <button type="button" onClick={() => setEdit(!editItem)}>{entry.school}</button>
-            {editItem && ( //Current editing entry will have visible fields
+            <button type="button" onClick={() => setEdit(!isEditing)}>{entry.school}</button>
+            {isEditing && ( //Current editing entry will have visible fields
                 <section id={entry.id}>
                     <InputGroup
                         type="text"
@@ -47,6 +47,10 @@ export default function EducationItem({ entry, onChange }) {
                         value={entry.eduEndDate}
                         onChange={onChange}
                     />
+                    <div className='formBtns'>
+                        <button type="button" className='deleteBtn' onClick={(e) => onDelete(e)}>Delete</button>
+                        <button type="button" className='closeBtn' onClick={() => setEdit(!isEditing)}>Close</button>
+                    </div>
                 </section>
             )}
         </div>

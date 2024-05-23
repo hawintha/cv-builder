@@ -16,7 +16,6 @@ const exampleData = {
             eduStartDate: "1932",
             eduEndDate: "1936",
             id: uuidv4(),
-            isCollapsed: true
         },
         {
             school: "High School Musical",
@@ -25,7 +24,6 @@ const exampleData = {
             eduStartDate: "1928",
             eduEndDate: "1932",
             id: uuidv4(),
-            isCollapsed: true
         },
     ],
     expDetails: [
@@ -51,42 +49,34 @@ const exampleData = {
         {
             skillName: "Communication",
             id: uuidv4(),
-            isCollapsed: true
         },
         {
             skillName: "Leadership",
             id: uuidv4(),
-            isCollapsed: true
         },
         {
             skillName: "Creativity",
             id: uuidv4(),
-            isCollapsed: true
         },
         {
             skillName: "Dance",
             id: uuidv4(),
-            isCollapsed: true
         },
         {
             skillName: "Problem Solving",
             id: uuidv4(),
-            isCollapsed: true
         },
         {
             skillName: "Flexibility",
             id: uuidv4(),
-            isCollapsed: true
         },
         {
             skillName: "Piano",
             id: uuidv4(),
-            isCollapsed: true
         },
         {
             skillName: "Magic",
             id: uuidv4(),
-            isCollapsed: true
         }
     ]
 }

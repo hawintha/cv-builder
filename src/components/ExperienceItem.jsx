@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import InputGroup from "./InputGroup";
-export default function EducationItem({ entry, onChange }) {
-    const [isEditing, setEdit] = useState(false);
+export default function EducationItem({ entry, onChange, onDelete }) {
+    const [isEditing, setEdit] = useState(true);
     return (<>
         <div className="detail-item" key={entry.id}>
             <button type="button" onClick={() => setEdit(!isEditing)}>{entry.title}</button>
@@ -47,6 +47,10 @@ export default function EducationItem({ entry, onChange }) {
                         value={entry.expEndDate}
                         onChange={onChange}
                     />
+                    <div className='formBtns'>
+                        <button type="button" className='deleteBtn' onClick={(e) => onDelete(e)}>Delete</button>
+                        <button type="button" className='closeBtn' onClick={() => setEdit(!isEditing)}>Close</button>
+                    </div>
                 </section>
             )}
         </div>

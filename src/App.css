@@ -40,6 +40,35 @@ form button {
 
 .detail-item button {
   font-weight: 600;
+  height: 40px;
+}
+
+.formBtns {
+  display: flex;
+  justify-content: right;
+  gap: 5px;
+}
+
+.closeBtn,
+.deleteBtn {
+  width: 4rem;
+  color: white;
+}
+
+.closeBtn {
+  background-color: #7D7D7D7D;
+}
+
+.closeBtn:hover {
+  background-color: #7D7D7D;
+}
+
+.deleteBtn {
+  background-color: #FF000080;
+}
+
+.deleteBtn:hover {
+  background-color: #FF0000B0;
 }
 
 .previewContainer {

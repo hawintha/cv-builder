@@ -1,7 +1,7 @@
 import InputGroup from "./InputGroup";
 export default function GeneralInfo({ details, onChange }) {
     return (
-        <fieldset className="genInfo">
+        <fieldset className="genDetails">
             <h2>General Information</h2>
             <InputGroup
                 type="text"

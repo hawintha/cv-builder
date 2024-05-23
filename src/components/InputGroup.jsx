@@ -11,7 +11,7 @@ export default function InputGroup({ type, className, label, placeholder, value,
                     onChange={onChange}
                 />
             ) : (
-                <textarea rows="5" placeholder={placeholder} value={value} onChange={onChange}></textarea>
+                <textarea className={className} rows="5" placeholder={placeholder} value={value} onChange={onChange}></textarea>
             )}
         </div>
     )

@@ -13,34 +13,25 @@ export default function App() {
   const [eduDetails, setEduDetails] = useState(exampleData.eduDetails);
   const [expDetails, setExpDetails] = useState(exampleData.expDetails);
   const [skillDetails, setSkillDetails] = useState(exampleData.skillDetails);
+  const getDetails = (arrayName) => {
+    if (arrayName === "eduDetails") {
+      return { section: eduDetails, fx: setEduDetails };
+    } else if (arrayName === "expDetails") {
+      return { section: expDetails, fx: setExpDetails };
+    } else if (arrayName === "skillDetails") {
+      return { section: skillDetails, fx: setSkillDetails };
+    }
+  }
 
   function handleGenDetailsChange(e) {
     setGenDetails({ ...genDetails, [e.target.className]: e.target.value });
   }
 
-  function handleEduDetailsChange(e) {
-    let targetUUID = e.target.parentElement.parentElement.id;
-    setEduDetails(eduDetails.map((entry) => { //Update the entry array in details
-      if (entry.id === targetUUID) {
-        entry[e.target.className] = e.target.value; //Update matching entry using input value
-      }
-      return entry
-    }));
-  }
-
-  function handleExpDetailsChange(e) {
-    let targetUUID = e.target.parentElement.parentElement.id;
-    setExpDetails(expDetails.map((entry) => { //Update the entry array in details
-      if (entry.id === targetUUID) {
-        entry[e.target.className] = e.target.value; //Update matching entry using input value
-      }
-      return entry
-    }));
-  }
-
-  const handleSkillsChange = (e) => {
-    let targetUUID = e.target.parentElement.parentElement.id;
-    setSkillDetails(skillDetails.map((entry) => { //Update the entry array in details
+  function handleDetailsChange(e) {
+    let targetUUID = e.target.closest('section').id;
+    let arrayName = e.target.closest('fieldset').className;
+    let stateDetails = getDetails(arrayName);
+    stateDetails.fx(stateDetails.section.map((entry) => { //Update the entry array in details
       if (entry.id === targetUUID) {
         entry[e.target.className] = e.target.value; //Update matching entry using input value
       }
@@ -55,32 +46,40 @@ export default function App() {
   }
   const createEduForm = () => {
     createForm(eduDetails, setEduDetails, {
-      school: "Unspecified",
-      degree: "",
-      eduLocation: "",
+      school: "School",
+      degree: "Degree",
+      eduLocation: "City, State",
       eduStartDate: "",
       eduEndDate: "",
       id: uuidv4(),
-      isCollapsed: true
     })
   }
   const extraExpForm = () => {
     createForm(expDetails, setExpDetails, {
       title: "Unspecified",
-      company: "",
+      company: "Unspecified",
       responsibilities: "",
       expStartDate: "",
       expEndDate: "",
       id: uuidv4(),
-      isCollapsed: true
     })
   }
   const createSkillForm = () => {
     createForm(skillDetails, setSkillDetails, {
       skillName: "Unspecified",
       id: uuidv4(),
-      isCollapsed: true
     })
+  }
+
+  const deleteEntry = (e) => {
+    let arrayName = e.target.closest('fieldset').className;
+    let targetUUID = e.target.closest('section').id;
+    let stateDetails = getDetails(arrayName);
+    stateDetails.fx(stateDetails.section.filter((entry) => { //Update the entry array in details
+      if (entry.id !== targetUUID) {
+        return entry//Remove matching entry using input value
+      }
+    }));
   }
 
   return (
@@ -92,18 +91,21 @@ export default function App() {
         />
         <EducationInfo
           details={eduDetails}
-          onChange={handleEduDetailsChange}
+          onChange={handleDetailsChange}
           createForm={createEduForm}
+          onDelete={deleteEntry}
         />
         <ExperienceInfo
           details={expDetails}
-          onChange={handleExpDetailsChange}
+          onChange={handleDetailsChange}
           extraForm={extraExpForm}
+          onDelete={deleteEntry}
         />
         <SkillsInfo
           details={skillDetails}
-          onChange={handleSkillsChange}
+          onChange={handleDetailsChange}
           createForm={createSkillForm}
+          onDelete={deleteEntry}
         />
       </form>
       <Preview
